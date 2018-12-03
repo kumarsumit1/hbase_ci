@@ -14,7 +14,7 @@ docker run -it --name=hbase \
       -p 16030:16030 \
       -v </path/to/hbasedata>:/data/hbase \
       -v </path/to/zookeeperdata>:/data/zookeeper \
-      hyness/hbase-rest-standalone
+      kumarsumit1/hbase_ci
 ```
 
 #### Parameters
@@ -45,5 +45,5 @@ http://hbase:16010/master-status
 ### Accessing the HBase shell
 ```
 [user@host ~]$ docker exec -it hbase bash
-user@host:/opt# hbase shell
+/opt/hbase/hbase-2.1.1/bin/hbase shell
 ```

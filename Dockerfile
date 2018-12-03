@@ -1,26 +1,21 @@
-## -*- docker-image-name: "banno/hbase-standalone" -*-
-#FROM ubuntu:12.04
 FROM java:openjdk-8-jre 
 MAINTAINER sk
+
+
+ENV HBASE_VERSION 2.1.0 
+
 
 # install add-apt-repository
 RUN \
   apt-get update && \
   apt-get install -y python-software-properties curl
 
-# install java
-#RUN \
-#  echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
-#  echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections && \
-#  add-apt-repository -y ppa:webupd8team/java && \
-#  apt-get update && \
-#  apt-get install -y oracle-java7-installer
+
 
 # install hbase master
 RUN mkdir /opt/hbase
-#RUN wget -q https://github.com/Banno/docker-hbase-standalone/raw/master/hbase-0.94.15-cdh4.7.0.tar.gz -O /opt/hbase/hbase-0.94.15-cdh4.7.0.tar.gz
-RUN wget -q http://mirrors.gigenet.com/apache/hbase/2.1.1/hbase-2.1.1-bin.tar.gz -O /opt/hbase/hbase-2.1.1-bin.tar.gz
-RUN cd /opt/hbase && tar xfvz hbase-2.1.1-bin.tar.gz
+RUN wget -q http://mirrors.gigenet.com/apache/hbase/"$HBASE_VERSION"/hbase-"$HBASE_VERSION"-bin.tar.gz -O /opt/hbase/hbase-"$HBASE_VERSION"-bin.tar.gz
+RUN cd /opt/hbase && tar xfvz hbase-"$HBASE_VERSION"-bin.tar.gz
 ADD hbase-site.xml /etc/hbase/conf/hbase-site.xml
 
 # need this for hbase to run
@@ -37,4 +32,4 @@ EXPOSE 60020
 # HBase Regionserver web UI
 EXPOSE 60030
 
-CMD /opt/hbase/hbase-2.1.1/bin/hbase master start
+CMD /opt/hbase/hbase-"$HBASE_VERSION"/bin/hbase master start
