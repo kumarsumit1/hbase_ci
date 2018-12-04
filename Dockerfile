@@ -48,4 +48,7 @@ EXPOSE 60020
 # HBase Regionserver web UI
 EXPOSE 60030
 
+#  Go to http://localhost:16010 to view the HBase Web UI.
+EXPOSE 16010
+
 CMD "$HBASE_HOME"/bin/hbase master start
