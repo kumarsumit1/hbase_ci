@@ -14,9 +14,16 @@ RUN \
 
 # install hbase master
 RUN mkdir /opt/hbase
-RUN wget -q http://mirrors.gigenet.com/apache/hbase/"$HBASE_VERSION"/hbase-"$HBASE_VERSION"-bin.tar.gz -O /opt/hbase/hbase-"$HBASE_VERSION"-bin.tar.gz
+
+RUN wget -q http://apache.mirrors.pair.com/hbase/"$HBASE_VERSION"/hbase-"$HBASE_VERSION"-bin.tar.gz -O /opt/hbase/hbase-"$HBASE_VERSION"-bin.tar.gz
+
 RUN cd /opt/hbase && tar xfvz hbase-"$HBASE_VERSION"-bin.tar.gz
+
+RUN rm /opt/hbase/hbase-"$HBASE_VERSION"-bin.tar.gz
+
 ADD hbase-site.xml /etc/hbase/conf/hbase-site.xml
+
+
 
 # need this for hbase to run
 ENV JAVA_HOME /usr
