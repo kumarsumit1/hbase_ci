@@ -2,7 +2,7 @@ FROM java:openjdk-8-jre
 MAINTAINER sk
 
 
-ENV HBASE_VERSION 2.1.0 
+ENV HBASE_VERSION 2.1.1
 
 
 # install add-apt-repository
