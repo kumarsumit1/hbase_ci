@@ -23,10 +23,15 @@ RUN rm /opt/hbase/hbase-"$HBASE_VERSION"-bin.tar.gz
 
 #You need to specify the directory on the local filesystem where HBase and ZooKeeper write data and acknowledge some risks. 
 
-ADD hbase-site.xml /etc/hbase/conf/hbase-site.xml
+ADD scripts/hbase-site.xml /etc/hbase/conf/hbase-site.xml
 
+ADD scripts/start-hbase.sh /usr/bin/start-hbase.sh
 
+RUN chmod 777 /usr/bin/start-hbase.sh
 
+# Supervisor config 
+
+#ADD supervisor/hbase.conf /etc/supervisor/conf.d/
 
 #Most modern Linux operating systems provide a mechanism, such as /usr/bin/alternatives on RHEL or CentOS,
 # for transparently switching between versions of executables such as Java. 
@@ -55,5 +60,5 @@ EXPOSE 16010
 EXPOSE 8080
 
 
-
+#CMD ["supervisord", "-n"]
 CMD "$HBASE_HOME"/bin/hbase master start

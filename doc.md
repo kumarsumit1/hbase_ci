@@ -140,10 +140,11 @@ There are many different data sets, with different access patterns and service-l
 
 
 
-https://www.youtube.com/watch?v=2Ci_QxJ1kiE
+[Apache HBase - Just the Basics](https://www.youtube.com/watch?v=2Ci_QxJ1kiE)
 
 
-[ IBM Big Data - HBase Fundamentals ] ( https://www.youtube.com/watch?v=oBalV1lY3pY )
+[IBM Big Data - HBase Fundamentals]( https://www.youtube.com/watch?v=oBalV1lY3pY )
 
+[HBase Schema Design - Things you need to know]( https://www.youtube.com/watch?v=_HLoH_PgrLk )
 
 https://www.youtube.com/watch?v=KZps2dzr_u4
