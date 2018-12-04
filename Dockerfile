@@ -3,7 +3,7 @@ MAINTAINER sk
 
 
 ENV HBASE_VERSION 2.1.1
-
+ENV HBASE_HOME /opt/hbase/hbase-"$HBASE_VERSION" 
 
 # install add-apt-repository
 RUN \
@@ -48,4 +48,4 @@ EXPOSE 60020
 # HBase Regionserver web UI
 EXPOSE 60030
 
-CMD /opt/hbase/hbase-"$HBASE_VERSION"/bin/hbase master start
+CMD "$HBASE_HOME"/bin/hbase master start
