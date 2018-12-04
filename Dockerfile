@@ -51,4 +51,9 @@ EXPOSE 60030
 #  Go to http://localhost:16010 to view the HBase Web UI.
 EXPOSE 16010
 
+# REST API's
+EXPOSE 8080
+
+
+
 CMD "$HBASE_HOME"/bin/hbase master start
