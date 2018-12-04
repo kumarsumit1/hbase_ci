@@ -1,15 +1,48 @@
+# Introduction
+HBase is a type of ***"NoSQL" distributed*** database. "NoSQL" is a general term meaning that the database isn’t an RDBMS which supports SQL as its primary access language.
+
+HBase internally puts your data in indexed "StoreFiles" that exist on HDFS for high-speed lookups.
+
+HBase features of note are:
+
+    Strongly consistent reads/writes: HBase is not an "eventually consistent" DataStore. This makes it very suitable for tasks such as high-speed counter aggregation.
+
+    Automatic sharding: HBase tables are distributed on the cluster via regions, and regions are automatically split and re-distributed as your data grows.
+
+    Automatic RegionServer failover
+
+    Hadoop/HDFS Integration: HBase supports HDFS out of the box as its distributed file system.
+
+    MapReduce: HBase supports massively parallelized processing via MapReduce for using HBase as both source and sink.
+
+    Java Client API: HBase supports an easy to use Java API for programmatic access.
+
+    Thrift/REST API: HBase also supports Thrift and REST for non-Java front-ends.
+
+    Block Cache and Bloom Filters: HBase supports a Block Cache and Bloom Filters for high volume query optimization.
+
+    Operational Management: HBase provides build-in web-pages for operational insight as well as JMX metrics.
+
 
 
 # Execution Mode
 
-## Pseudo-Distributed Local :
+## Standalone
+
+### Standalone HBase without HDFS
+
+### Standalone HBase over HDFS
+
+## Distributed
+
+### Pseudo-Distributed Local :
   Pseudo-distributed mode means that HBase still runs completely on a single host, but each HBase daemon (HMaster, HRegionServer, and ZooKeeper) runs as a separate process: in standalone mode all daemons ran in one jvm process/instance.
 
   By default, unless you configure the hbase.rootdir property as described in quickstart, your data is still stored in /tmp/. 
   
   we store the data in HDFS , assuming HDFS is available, or we can skip the HDFS configuration to continue storing your data in the local filesystem.
 
-## Distributed Mode :
+### Fully-distributed :
   
 
 # Data Model

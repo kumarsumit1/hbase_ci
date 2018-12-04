@@ -1,5 +1,5 @@
-# hbase_ci
-# hbase-rest-standalone
+# HBase : Standalone with REST
+
 A docker image of [HBase]( https://hbase.apache.org/book.html ) running in standalone mode with [REST interface](https://hbase.apache.org/book.html#_rest) enabled.
 
 ## Usage
