@@ -21,11 +21,20 @@ RUN cd /opt/hbase && tar xfvz hbase-"$HBASE_VERSION"-bin.tar.gz
 
 RUN rm /opt/hbase/hbase-"$HBASE_VERSION"-bin.tar.gz
 
+#You need to specify the directory on the local filesystem where HBase and ZooKeeper write data and acknowledge some risks. 
+
 ADD hbase-site.xml /etc/hbase/conf/hbase-site.xml
 
 
 
-# need this for hbase to run
+
+#Most modern Linux operating systems provide a mechanism, such as /usr/bin/alternatives on RHEL or CentOS,
+# for transparently switching between versions of executables such as Java. 
+#In this case, you can set JAVA_HOME to the directory containing the symbolic link to bin/java, 
+#which is usually /usr
+
+# You are required to set the JAVA_HOME environment variable before starting HBase
+
 ENV JAVA_HOME /usr
 
 # zookeeper
