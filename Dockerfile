@@ -8,7 +8,7 @@ ENV HBASE_HOME /opt/hbase/hbase-"$HBASE_VERSION"
 # install add-apt-repository
 RUN \
   apt-get update && \
-  apt-get install -y python-software-properties curl
+  apt-get install -y supervisor curl wget vim-tiny
 
 
 
