@@ -3,7 +3,7 @@ MAINTAINER sk
 
 
 ENV HBASE_VERSION 2.1.1
-ENV HBASE_HOME /opt/hbase/hbase-"$HBASE_VERSION" 
+ENV HBASE_HOME /opt/hbase/hbase
 
 # install add-apt-repository
 RUN \
@@ -13,11 +13,11 @@ RUN \
 
 
 # install hbase master
-RUN mkdir -p /opt/hbase/log
+RUN mkdir -p /opt/hbase/log $HBASE_HOME
 
 RUN wget -q http://apache.mirrors.pair.com/hbase/"$HBASE_VERSION"/hbase-"$HBASE_VERSION"-bin.tar.gz -O /opt/hbase/hbase-"$HBASE_VERSION"-bin.tar.gz
 
-RUN cd /opt/hbase && tar xfvz hbase-"$HBASE_VERSION"-bin.tar.gz
+RUN tar -xvzf /opt/hbase/hbase-"$HBASE_VERSION"-bin.tar.gz -C $HBASE_HOME --strip-components=1
 
 #RUN rm /opt/hbase/hbase-"$HBASE_VERSION"-bin.tar.gz
 
