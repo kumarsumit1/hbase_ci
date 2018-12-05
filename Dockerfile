@@ -59,6 +59,11 @@ EXPOSE 16010
 # REST API's
 EXPOSE 8080
 
+# forward request and error logs to docker log collector
+# Path of log file being from hbase.conf of supervisor
+
+RUN ln -sf /dev/stdout /opt/hbase/log/hbase.out.log \
+&& ln -sf /dev/stderr /opt/hbase/log/hbase.err.log
 
 CMD ["supervisord", "-n"]
 #CMD "$HBASE_HOME"/bin/hbase master start
