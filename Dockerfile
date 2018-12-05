@@ -13,13 +13,13 @@ RUN \
 
 
 # install hbase master
-RUN mkdir /opt/hbase
+RUN mkdir -p /opt/hbase/log
 
 RUN wget -q http://apache.mirrors.pair.com/hbase/"$HBASE_VERSION"/hbase-"$HBASE_VERSION"-bin.tar.gz -O /opt/hbase/hbase-"$HBASE_VERSION"-bin.tar.gz
 
 RUN cd /opt/hbase && tar xfvz hbase-"$HBASE_VERSION"-bin.tar.gz
 
-RUN rm /opt/hbase/hbase-"$HBASE_VERSION"-bin.tar.gz
+#RUN rm /opt/hbase/hbase-"$HBASE_VERSION"-bin.tar.gz
 
 #You need to specify the directory on the local filesystem where HBase and ZooKeeper write data and acknowledge some risks. 
 
@@ -31,7 +31,7 @@ RUN chmod 777 /usr/bin/start-hbase.sh
 
 # Supervisor config 
 
-#ADD supervisor/hbase.conf /etc/supervisor/conf.d/
+ADD supervisor/hbase.conf /etc/supervisor/conf.d/
 
 #Most modern Linux operating systems provide a mechanism, such as /usr/bin/alternatives on RHEL or CentOS,
 # for transparently switching between versions of executables such as Java. 
@@ -60,5 +60,5 @@ EXPOSE 16010
 EXPOSE 8080
 
 
-#CMD ["supervisord", "-n"]
-CMD "$HBASE_HOME"/bin/hbase master start
+CMD ["supervisord", "-n"]
+#CMD "$HBASE_HOME"/bin/hbase master start
