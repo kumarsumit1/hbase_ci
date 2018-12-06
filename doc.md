@@ -68,41 +68,41 @@ HBase features of note are:
 # Basic shell commands
 
 
-Create a table
-	create 'test', 'cf'
+	Create a table
+		create 'test', 'cf'
  
  
-List Information About your Table
-	list 'test'
+	List Information About your Table
+		list 'test'
 
 	
-See details, including configuration defaults
-	describe 'test'
+	See details, including configuration defaults
+		describe 'test'
 
 	
-Put data into your table
-	put 'test', 'row1', 'cf:a', 'value1'
-	put 'test', 'row2', 'cf:b', 'value2'
-	put 'test', 'row3', 'cf:c', 'value3'
+	Put data into your table
+		put 'test', 'row1', 'cf:a', 'value1'
+		put 'test', 'row2', 'cf:b', 'value2'
+		put 'test', 'row3', 'cf:c', 'value3'
 
 	
-Scan the table for all data at once.
-	scan 'test'
+	Scan the table for all data at once.
+		scan 'test'
 
 	
-Get a single row of data
-	get 'test', 'row1'
+	Get a single row of data
+		get 'test', 'row1'
 
 	
-Disable a table
-	disable 'test'
+	Disable a table
+		disable 'test'
 
 	
-Enable a table
-	enable 'test'
+	Enable a table
+		enable 'test'
 	
-Drop the table.
-	drop 'test'
+	Drop the table.
+		drop 'test'
 
 
 
@@ -147,4 +147,4 @@ There are many different data sets, with different access patterns and service-l
 
 [HBase Schema Design - Things you need to know]( https://www.youtube.com/watch?v=_HLoH_PgrLk )
 
-https://www.youtube.com/watch?v=KZps2dzr_u4
+[Apache HBase 101: How HBase Can Help You Build Scalable, Distributed Java Applications](https://www.youtube.com/watch?v=KZps2dzr_u4)
